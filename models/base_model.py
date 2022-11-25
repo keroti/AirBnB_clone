@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+""" Class BaseModel """
+from datetime import datetime
+from uuid import uuid4
+
+
+class BaseModel:
+    """ A base class for Airbnb model """
+
+    def __init__(self, *args, **kwargs):
+        """ Construct """
+        self.id = str(uuid4())
+        self.created_at = datetime.now()
+        self.updated_at = self.created_at
+
+    def __str__(self):
+        """ String """
+        return('[' + type(self).__name__ + '] (' + str(self.id) +
+               ') ' + str(self.__dict__))
+
+    def save(self):
+        """ save function """
+        self.updated_at = datetime.now()
+
+    def to_dict(self):
+        """ Return a dictionary """
+        aux_dict = self.__dict__.copy()
+        aux_dict['__class__'] = self.__class__.__name__
+        aux_dict['created_at'] = self.created_at.isoformat()
+        aux_dict['updated_at'] = self.updated_at.isoformat()
+        return aux_dict
