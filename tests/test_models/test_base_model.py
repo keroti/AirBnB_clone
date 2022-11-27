@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ testing files """
-from main import BaseModel  # from models.base_model import BaseModel
+from models.base_model import BaseModel
 import unittest
 import datetime
 import json
@@ -95,5 +95,4 @@ class TestBaseModel(unittest.TestCase):
         self.assertEqual(type(new.updated_at), datetime.datetime)
         n = new.to_dict()
         new = BaseModel(**n)
-        self.assertFalse(new.created_at == new.updated_at)
-
+        self.assertFalse(new.created_at == new.updated_at)      
