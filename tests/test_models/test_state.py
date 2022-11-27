@@ -4,7 +4,7 @@ from tests.test_models.test_base_model import TestBaseModel
 from models.state import State
 
 
-class test_state(test_basemodel):
+class test_state(TestBaseModel):
     """ """
 
     def __init__(self, *args, **kwargs):
