@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ testing files """
-from main import BaseModel  # from models.base_model import BaseModel
+from models.base_model import BaseModel
 import unittest
 import datetime
 import json
